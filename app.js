@@ -24,12 +24,16 @@ function operate(x, y, op) {
 
 const buttons = document.querySelectorAll('.button');
 const display = document.querySelector('.display')
+let operation = [];
 
 let displayVals = '';
 buttons.forEach(button => {
     button.addEventListener('click', e => {
         displayVals += button.value;
         display.innerText = displayVals;
+        console.log(displayVals);
+        operation.push(displayVals);
+        console.log(`operation: ${displayVals}`);
     })
 })
 
