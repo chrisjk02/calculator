@@ -14,13 +14,32 @@ function divide(x, y) {
     return x / y;
 }
 
-let firstNum;
-let secondNum;
-let operator;
-
 function operate(x, y, op) {
     if (op === '+') { return add(x, y); }
     else if (op === '-') { return subtract(x, y) }
     else if (op === '*') { return multiply(x, y) }
     else if (op === 'divide') { return divide(x, y) };
 }
+
+
+const buttons = document.querySelectorAll('.button');
+const display = document.querySelector('.display')
+
+let displayVals = '';
+buttons.forEach(button => {
+    button.addEventListener('click', e => {
+        displayVals += button.value;
+        display.innerText = displayVals;
+    })
+})
+
+const clear = document.querySelector('button[value = "clear"]');
+clear.addEventListener('click', e => {
+    displayVals = '';
+    display.innerText = displayVals;
+})
+
+
+let firstNum;
+let operator;
+let secondNum;

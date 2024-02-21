@@ -23,7 +23,8 @@ body {
     align-items: center;
 }
 
-.button {
+.button,
+.operator {
     background-color: #778da9;
     font-family: inherit;
     border: none;
