@@ -24,7 +24,8 @@ body {
 }
 
 .button,
-.operator {
+.operator,
+.equals {
     background-color: #778da9;
     font-family: inherit;
     border: none;

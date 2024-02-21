@@ -15,35 +15,62 @@ function divide(x, y) {
 }
 
 function operate(x, y, op) {
-    if (op === '+') { return add(x, y); }
-    else if (op === '-') { return subtract(x, y) }
-    else if (op === '*') { return multiply(x, y) }
-    else if (op === 'divide') { return divide(x, y) };
+    num1 = parseInt(x);
+    num2 = parseInt(y);
+    if (op === '+') { return add(num1, num2); }
+    else if (op === '-') { return subtract(num1, num2) }
+    else if (op === '*') { return multiply(num1, num2) }
+    else if (op === '/') { return divide(num1, num2) };
 }
 
 
 const buttons = document.querySelectorAll('.button');
 const display = document.querySelector('.display')
-let operation = [];
+
+
+let firstNum = '';
+let operator = '';
+let secondNum = '';
 
 let displayVals = '';
 buttons.forEach(button => {
     button.addEventListener('click', e => {
-        displayVals += button.value;
-        display.innerText = displayVals;
-        console.log(displayVals);
-        operation.push(displayVals);
-        console.log(`operation: ${displayVals}`);
+        display.innerText = (displayVals += button.value);
+        firstNum = displayVals;
     })
 })
 
 const clear = document.querySelector('button[value = "clear"]');
 clear.addEventListener('click', e => {
-    displayVals = '';
+    display.innerText = (displayVals = '');
+    firstNum = '';
+    secondNum = '';
+    operator = '';
+    operation = [];
+})
+
+let operation = [];
+
+const operators = document.querySelectorAll('.operator');
+operators.forEach(op => {
+    op.addEventListener('click', e => {
+        operator = op.value;
+        operation.push(firstNum);
+        operation.push(operator);
+        firstNum = '';
+        display.innerText = (displayVals = '');
+    })
+})
+
+
+const equals = document.querySelector('.equals');
+equals.addEventListener('click', e => {
+    operation.push(firstNum);
+    console.log(operation);
+
+    displayVals = (operate(operation[0], operation[2], operation[1]));
     display.innerText = displayVals;
 })
 
 
-let firstNum;
-let operator;
-let secondNum;
+
