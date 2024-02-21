@@ -1,0 +1,16 @@
+.container {
+    background-color: grey;
+    border-radius: 8px;
+    width: 400px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 8px;
+}
+
+.row {
+    background-color: blue;
+    width: 400px;
+    height: 200px;
+}
